@@ -11,6 +11,7 @@ import { ItemPlatilloComponent } from './components/platillos/item-platillo/item
 import { HomeComponent } from './components/home/home.component';
 import { PayComponent } from './components/pay/pay.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,33 @@
-{{opcion}}
+<div class="container">
+    <!-- Lado izquierdo -->
+    <div class="grid">
+        <div class="card" *ngFor="let platillo of listaPlatillos">
+            <div class="preview">
+                <div class="preview__description">
+                    <h2>{{platillo.nombre}}</h2>
+                    <p>{{platillo.descripcion}} </p>
+                </div>
+                <!-- [routerLink]="['/detail-food', platillo.id]" -->
+                <a href="detail-food/{{platillo.id}}" target="_blank" [title]="platillo.nombre">
+                    <img class="preview__image" [src]="platillo.imagen" [alt]="platillo.nombre">
+                </a>
+            </div>
+
+            <div class="divisor"></div>
+        </div>
+    </div>
+
+    <!-- Lado derecho-->
+    <div class="sidebar">
+        <div class="sidebar__borde">
+            <p class="sidebar__titulo">
+                ¿Como ordenar?
+            </p>
+            <p class="sidebar__descripcion">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum necessitatibus animi commodi similique? Laudantium odit veniam voluptatibus exercitationem natus corporis voluptas mollitia distinctio porro dolorum eligendi voluptate quibusdam unde, culpa tempore quidem! Reiciendis sequi eveniet vitae nesciunt labore quibusdam, fugiat incidunt aut non autem, consectetur veritatis voluptas, rerum ex?.
+                <br><br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ullam molestiae porro amet doloremque consequatur impedit quidem? Eum, molestias sint?
+            </p>
+        </div>
+    </div>
+</div>

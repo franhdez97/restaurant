@@ -7,10 +7,9 @@ h1, p
     padding: 0
     color: styles.$oscuroClaro
 
+/*Clases*/
 .container-principal p
     font-size: 18px
-
-/*Clases*/
 .container-principal
     background-color: styles.$background
     padding: .5rem 0
@@ -20,13 +19,20 @@ h1, p
     width: 80%
     margin: 0 auto
     border-radius: .5rem
-    margin-bottom: 1rem
+    margin-bottom: 2rem
 
 .grid
     display: grid
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(1, 1fr)
     column-gap: 2rem
     padding: 1rem 2rem 0 2rem
+
+@media (min-width: 768px)
+    .grid
+        grid-template-columns: repeat(2, 1fr)
+@media (min-width: 1200px)
+    .grid
+        grid-template-columns: repeat(3, 1fr)
 
 h1
     color: styles.$oscuro
