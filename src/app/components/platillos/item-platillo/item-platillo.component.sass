@@ -1,0 +1,49 @@
+@use '../../../../styles'
+
+%resolucion
+    width: 100%
+%transicion
+    transition: all 0.25s ease-in-out
+
+/*Estilos generales*/
+img
+    @extend %resolucion
+h3
+    text-transform: uppercase
+    color: styles.$oscuroClaro
+a
+    text-decoration: none
+    color: white
+
+/*Para los platillos*/
+.card
+    @extend %resolucion
+.card__image
+    cursor: pointer
+    border-radius: .5rem
+    @extend %transicion
+
+    &:hover
+        transform: scale(1.1)
+    
+.opacidad
+    background-color: rgba(17, 17, 17, .7)
+    padding: 2rem 0
+    font-size: 1.4rem
+    text-transform: uppercase
+    text-align: center
+    @extend %transicion
+    border-radius: .5rem
+    color: white
+
+    &:hover
+        background-color: rgba(17, 17, 17, .3)
+
+/*Footer*/
+.card__footer
+    display: flex
+    justify-content: space-between
+    margin-bottom: 1rem
+.card__footer img
+    width: 32px
+    cursor: pointer

@@ -1,0 +1,53 @@
+/*Para importar estilos bases*/
+@use '../../../styles'
+
+/*Definicion del color en esta seccion*/
+%color_fuente
+    color: white
+
+/*Footer*/
+.footer
+    display: flex
+    justify-content: space-evenly
+    align-content: center
+    background-color: styles.$footer
+    @extend %color_fuente
+
+.parrafos
+    text-align: center
+
+.parrafos__descripcion
+    text-transform: uppercase
+
+.negritas
+    text-transform: uppercase
+    font-weight: bold
+
+/*Fin footer*/
+
+.divisor
+    background-color: styles.$footerClaro
+    // border: 1px styles.$opciones solid
+    margin: 1rem 0rem
+    padding: 0 .1rem
+
+/*Enlaces*/
+.relleno
+    display: flex
+    align-items: center
+    margin: 0 .5rem
+
+.enlaces
+    display: flex
+    justify-content: center
+
+/*Fin Enlaces*/
+
+/*Globales*/
+a
+    text-decoration: none
+img
+    width: 32px
+    background-color: white
+    padding: .125rem
+    border-radius: 50%

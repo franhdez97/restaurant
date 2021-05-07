@@ -1,0 +1,51 @@
+@use '../../../styles'
+
+/*Importacion de nueva fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap')
+
+%transicion
+    transition: all 0.25s ease-in-out
+
+.header
+    display: flex
+    // justify-content: space-between
+    flex-direction: column
+    background-color: styles.$header
+
+@media (min-width: 768px)
+    .header
+        justify-content: space-between
+        flex-direction: row
+
+a
+    padding: .5rem 1rem
+    text-decoration: none
+    color: #161616
+    font-weight: bold
+    display: flex
+    align-items: center
+    @extend %transicion
+
+    &:hover
+        background-color: styles.$headerOscuro
+        color: white
+
+a[title="Orden"]
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    column-gap: .5rem
+    background-color: styles.$opciones
+
+    &:hover
+        background-color: styles.$opcionesOscuro
+        color: white
+
+a:nth-child(1)
+    font-family: 'Itim', cursive
+    font-size: 20px
+    background-color: styles.$headerOscuro
+    color: white
+
+img
+    width: 32px
+    padding: 0

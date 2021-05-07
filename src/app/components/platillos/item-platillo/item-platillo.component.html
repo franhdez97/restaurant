@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card__image" style="background: url({{platillo.imagen}}) center center; background-size: cover;" [routerLink]="['/detail-food', platillo.id]">
+        <div class="opacidad">
+            <p>{{platillo.nombre}}</p>
+        </div>
+    </div>
+    <p>{{platillo.descripcion}}</p>
+    <div class="card__footer">
+        <h3>{{platillo.precio | currency}}</h3>
+        <img src="../../../../assets/img/add.svg" alt="Agregar platillo" (click)="agregarPlatillo()" title="Agregar a la orden">
+    </div>
+</div>
