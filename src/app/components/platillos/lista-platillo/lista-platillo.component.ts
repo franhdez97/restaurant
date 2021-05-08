@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DetalleOrden } from '@app/shared/interfaces/detalleorden.interface';
+import { Platillo } from '@app/shared/interfaces/platillo.interface';
 import { PlatillosService } from '@app/shared/service/platillos.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -34,8 +36,13 @@ export class ListaPlatilloComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public agregarPlatillo(id: number, posicion: number): void {
+  public agregarPlatillo(platillo: Platillo, posicion: number): void {
     if (this.cantidad[posicion] > 0 && this.cantidad[posicion]) {
+      const detail = new DetalleOrden();
+      detail.cantidad = this.cantidad[posicion];
+      detail.platillo = platillo;
+      this.platillosServ.addCart(detail);
+
       this.toast.success(`Agrego ${this.cantidad[posicion]} ordenes a su carrito`, 'Orden actualizada');
       this.cantidad[posicion] = 0;
     }

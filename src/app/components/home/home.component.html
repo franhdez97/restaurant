@@ -3,6 +3,6 @@
     
 <div class="container">
     <div class="grid">
-        <app-item-platillo *ngFor="let c of platillos" [platillo]="c"></app-item-platillo>
+        <app-item-platillo *ngFor="let c of platillos | async" [platillo]="c"></app-item-platillo>
     </div>
 </div>
