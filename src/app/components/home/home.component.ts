@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     pla.descripcion = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
     pla.id = 1;
     pla.imagen  = 'http://localhost/API_restaurant/images/ensaladas/ensalada_casa.jpg';
-    pla.nombre = 'lorem ipsun';
+    pla.nombre = 'lorem ipsum';
     pla.precio = 2.50;
 
     this.platillos.push(pla);

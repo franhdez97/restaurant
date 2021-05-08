@@ -1,33 +1,60 @@
 <div class="container">
-    <!-- Lado izquierdo -->
-    <div class="grid">
-        <div class="card" *ngFor="let platillo of listaPlatillos">
+    <!-- Sidebar | left -->
+    <div class="sidebar-left">
+        <div class="card" *ngFor="let platillo of platillos | async | paginate: {
+            itemsPerPage: 2, currentPage: page
+        }; let i = index">
             <div class="preview">
                 <div class="preview__description">
                     <h2>{{platillo.nombre}}</h2>
                     <p>{{platillo.descripcion}} </p>
                 </div>
-                <!-- [routerLink]="['/detail-food', platillo.id]" -->
-                <a href="detail-food/{{platillo.id}}" target="_blank" [title]="platillo.nombre">
+
+                <a href="food-details/{{platillo.id}}" target="_blank" [title]="platillo.nombre">
                     <img class="preview__image" [src]="platillo.imagen" [alt]="platillo.nombre">
                 </a>
+            </div>
+            <div class="ordenar">
+                <input class="ordenar__input" type="number" min="1" placeholder="Cantidad" [(ngModel)]="cantidad[i]">
+
+                <img class="ordenar__btn" src="../../../../assets/img/add.svg" alt="Agregar platillo" (click)="agregarPlatillo(platillo.id, i)" title="Agregar a la orden">
             </div>
 
             <div class="divisor"></div>
         </div>
+        <div class="center">
+            <pagination-controls (pageChange)="page = $event"
+                previousLabel="Anterior"
+                nextLabel="Siguiente"
+            ></pagination-controls>
+        </div>
     </div>
 
-    <!-- Lado derecho-->
-    <div class="sidebar">
-        <div class="sidebar__borde">
-            <p class="sidebar__titulo">
-                ¿Como ordenar?
-            </p>
-            <p class="sidebar__descripcion">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum necessitatibus animi commodi similique? Laudantium odit veniam voluptatibus exercitationem natus corporis voluptas mollitia distinctio porro dolorum eligendi voluptate quibusdam unde, culpa tempore quidem! Reiciendis sequi eveniet vitae nesciunt labore quibusdam, fugiat incidunt aut non autem, consectetur veritatis voluptas, rerum ex?.
-                <br><br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ullam molestiae porro amet doloremque consequatur impedit quidem? Eum, molestias sint?
-            </p>
+    <!-- Sidebar | right -->
+    <div class="sidebar-right">
+        <div class="sidebar-border">
+            <div class="sidebar-left-container">
+                <p class="sidebar-left-container__titulo">
+                    ¿Como ordenar?
+                </p>
+    
+                <ul class="list">
+                    <li>Selecciona la cantidad de platillos que deseas</li>
+                    <li>Ha clic en el icono de agregar</li>
+                </ul>
+                <p>Y listo, muy simple ¿verdad?</p>
+    
+                <div class="divisor"></div>
+    
+                <div>
+                    <!-- <p class="center">
+                        Selecciona el platillo de tu preferencia y dejame contarte un poco sobre el
+                    </p> -->
+                    <div class="sidebar-left-container__descripcion">
+                        <p>Puedes ver tu carrito actual en la opción <span>Pagar</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

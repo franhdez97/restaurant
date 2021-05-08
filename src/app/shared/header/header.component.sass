@@ -10,11 +10,14 @@
     display: flex
     flex-direction: column
     background-color: styles.$header
+    position: static
 
 @media (min-width: 768px)
     .header
         justify-content: space-between
         flex-direction: row
+        position: sticky
+        top: 0rem
 
 a
     padding: .5rem 1rem
@@ -37,7 +40,7 @@ a[title="Orden"]
 
     &:hover
         background-color: styles.$opcionesOscuro
-        color: white
+        color: styles.$oscuroClaro
 
 a:nth-child(1)
     font-family: 'Itim', cursive
@@ -46,5 +49,5 @@ a:nth-child(1)
     color: white
 
 img
-    width: 32px
+    @extend %icon-size
     padding: 0

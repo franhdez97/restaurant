@@ -1,5 +1,7 @@
+/*Import from Styles (fonts and colors)*/
 @use '../../../../styles'
 
+/*Variables reciclables*/
 %resolucion
     width: 100%
 %transicion
@@ -49,5 +51,5 @@ a
     justify-content: space-between
     margin-bottom: 1rem
 .card__footer img
-    width: 32px
+    @extend %icon-size
     cursor: pointer

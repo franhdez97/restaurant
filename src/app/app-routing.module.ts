@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ListaPlatilloComponent
   },
   {
-    path: 'detail-food/:id',
+    path: 'food-details/:id',
     component: DetallePlatilloComponent
   },
   {

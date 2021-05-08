@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Platillo } from '@app/shared/interfaces/platillo.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-item-platillo',
@@ -9,13 +10,13 @@ import { Platillo } from '@app/shared/interfaces/platillo.interface';
 export class ItemPlatilloComponent implements OnInit {
   @Input() platillo: Platillo = new Platillo();
 
-  constructor() { }
+  constructor(private toast: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   agregarPlatillo(): void {
-    // code
+    this.toast.success(`Agrego "${this.platillo.nombre}" a su carrito`, 'Orden actualizada');
   }
 
 }

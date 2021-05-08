@@ -1,4 +1,5 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+/*La linea 16 -- strictNullCheck se agrego*/
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -12,6 +13,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
