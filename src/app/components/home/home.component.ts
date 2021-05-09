@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private platillosServ: PlatillosService) { }
 
   ngOnInit(): void {
+    window.document.title = 'Restaurant | Home';
     // Solicitud de API REST
     this.platillosServ.getHomeAPI();
   }

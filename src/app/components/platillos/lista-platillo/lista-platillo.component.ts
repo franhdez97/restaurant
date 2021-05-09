@@ -39,6 +39,7 @@ export class ListaPlatilloComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.document.title = 'Restaurant | Menu';
   }
 
   public agregarPlatillo(platillo: Platillo, posicion: number): void {

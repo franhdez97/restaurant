@@ -14,6 +14,10 @@
 
     <div class="divisor"></div>
 
+    <div class="cart-empty" *ngIf="carrito.length == 0">
+        <img class="cart-empty__img" src="../../../assets/img/cart-empty.svg">
+    </div>
+
     <div class="cart">
         <div class="cart__card" *ngFor="let c of carrito">
             <div class="left">

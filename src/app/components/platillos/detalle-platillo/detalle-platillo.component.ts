@@ -22,6 +22,7 @@ export class DetallePlatilloComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.document.title = 'Restaurant | Detail';
     this.platillosServ.getDetailAPI(this.route.snapshot.params?.id);
     this.platillosServ.getMoreImagesAPI(this.route.snapshot.params?.id);
   }

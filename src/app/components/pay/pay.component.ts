@@ -18,6 +18,7 @@ export class PayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.document.title = 'Restaurant | Pay';
   }
 
   reduce(detalle: DetalleOrden): void {
