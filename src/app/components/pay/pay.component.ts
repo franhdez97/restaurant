@@ -40,6 +40,7 @@ export class PayComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
+          // tslint:disable-next-line: quotemark
           title: "<h2 class='sweetalert2-custom-title'>Felicidades, acaba de hacer una compra ficticia :')</h2>",
           icon: 'success',
           confirmButtonText: '<h3>Cerrar</h3>',
