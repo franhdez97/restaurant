@@ -38,6 +38,11 @@ span
     display: flex
     justify-content: space-between
     margin: 0 2rem
+.color-verde
+    background-color: #d4edda
+    padding: .5rem 1rem
+    border-radius: .5rem
+    color: styles.$oscuroClaro
 
 /*Para el lado izquierdo*/
 .border
@@ -80,7 +85,7 @@ img
     transition: all .25s ease-out
 .btn-reduce
     border: .4rem #f5c6cb solid 
-    background-color: styles.$opciones2
+    ackground-color: styles.$opciones2
 
     &:hover
         background-color: #f8d7da
@@ -110,3 +115,7 @@ img
 @media (min-width:  768px)
     .right
         flex-direction: row
+
+/*Personalizar el sweetalert2*/
+.sweetalert2-custom-title
+    font-size: 3.2rem

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DetalleOrden } from '@app/shared/interfaces/detalleorden.interface';
 import { Platillo } from '@app/shared/interfaces/platillo.interface';
 import { CarritoService } from '@app/shared/service/carrito.service';
-import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-item-platillo',
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ItemPlatilloComponent implements OnInit {
   @Input() platillo: Platillo = new Platillo();
 
-  constructor(private toast: ToastrService, private carritoServ: CarritoService) { }
+  constructor(private carritoServ: CarritoService) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +23,13 @@ export class ItemPlatilloComponent implements OnInit {
     detail.platillo = this.platillo;
     this.carritoServ.addCart(detail);
 
-    this.toast.success(`Agrego "${this.platillo.nombre}" a su carrito`, 'Orden actualizada');
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: `Agrego 1 ${this.platillo.nombre} a su orden`,
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 
 }

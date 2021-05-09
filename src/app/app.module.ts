@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Alertas
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
 
 // Paginacion
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
@@ -38,7 +37,6 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
     NgxPaginationModule,
     FormsModule
   ],

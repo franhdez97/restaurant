@@ -4,7 +4,7 @@ import { DetalleOrden } from '@app/shared/interfaces/detalleorden.interface';
 import { Platillo } from '@app/shared/interfaces/platillo.interface';
 import { CarritoService } from '@app/shared/service/carrito.service';
 import { PlatillosService } from '@app/shared/service/platillos.service';
-import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-platillo',
@@ -27,7 +27,6 @@ export class ListaPlatilloComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private platillosServ: PlatillosService,
-    private toast: ToastrService,
     private carritoServ: CarritoService
   ) {
     this.route.url.subscribe(() => {
@@ -48,12 +47,24 @@ export class ListaPlatilloComponent implements OnInit {
       detail.cantidad = this.cantidad[posicion];
       detail.platillo = platillo;
       this.carritoServ.addCart(detail);
-
-      this.toast.success(`Agrego ${this.cantidad[posicion]} ordenes a su carrito`, 'Orden actualizada');
       this.cantidad[posicion] = 0;
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: `Agrego ${detail.cantidad} ${platillo.nombre}${detail.cantidad > 1 ? 's' : ''} a su orden`,
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
     else if (this.cantidad[posicion] <= 0) {
-      this.toast.error('Intente con un numero mayor a 0', 'Numero invalido');
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: `Debe ingresar una cantidad valida`,
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   }
 
