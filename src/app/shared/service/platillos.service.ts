@@ -3,11 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Platillo } from '../interfaces/platillo.interface';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DetalleOrden } from '../interfaces/detalleorden.interface';
 import { MoreImages } from '../interfaces/images.interface';
 
 const URL = 'http://localhost/API_restaurant/platillos';
-const carrito: Array<DetalleOrden> = [];
 
 @Injectable({
   providedIn: 'root'
@@ -61,25 +59,5 @@ export class PlatillosService {
     this.http.get<Platillo[]>(`${URL}/searchFood.php?query=${filter}`).pipe(
       map( (res: Platillo[]) => this.listaPlatillosSubject.next(res) )
     ).subscribe();
-  }
-
-  // Para saber el total de la orden
-  public addCart(detalle: DetalleOrden): void {
-    const index = this.exists(detalle);
-
-    index === -1 ? carrito.push(detalle) : carrito[index].cantidad += 1;
-  }
-  public deleteCart(detalle: DetalleOrden): void {
-    const i = this.exists(detalle);
-    if ( i !== -1 ) {
-      carrito.splice(i, 1);
-    }
-  }
-  public getCart(): Array<DetalleOrden> {
-    return carrito;
-  }
-
-  private exists(detalle: DetalleOrden): number {
-    return carrito.findIndex(d => detalle.platillo.id === d.platillo.id);
   }
 }

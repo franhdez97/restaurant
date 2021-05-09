@@ -1,6 +1,43 @@
-<p *ngIf="carrito.length > 0">Puedes ordenar algo más si deseas <span>(No le diremos a nadie)</span></p>
-<p *ngIf="carrito.length === 0">Primero agrega algo <span>(Te recomiendo acompañarlo con una bebida)</span></p>
-    
 <div class="container">
-    {{ carrito | json}}
+    <div class="title">
+        <p *ngIf="carrito.length > 0; else elseBlock">
+            Puedes ordenar algo más si deseas <span>(No le diremos a nadie)</span>
+        </p>
+        <ng-template #elseBlock>
+            <p>Primero agrega algo <span>(Te recomiendo acompañarlo con una bebida)</span></p>
+        </ng-template>
+
+        <p>
+            <span>{{total | currency}}</span>
+        </p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="cart">
+        <div class="cart__card" *ngFor="let c of carrito">
+            <div class="left">
+                <div class="border grid">
+                    <div class="contenido">
+                        <h2>{{c.platillo.nombre}} | <span>{{c.platillo.precio | currency}}</span></h2>
+                        <p>{{c.platillo.ingredientes}} <span>({{c.platillo.descripcion}})</span></p>
+                    </div>
+                    <div class="contenido__imagen" [routerLink]="['/food-details',c.platillo.id]">
+                        <img [src]="c.platillo.imagen" [alt]="c.platillo.nombre">
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <button class="btn btn-reduce" (click)="reduce(c)">-</button>
+                <div class="label-quantity">
+                    <label>{{c.cantidad}}</label>
+                </div>
+                <button class="btn btn-increment" (click)="increment(c)">+</button>
+            </div>
+        </div>
+        <div class="pay center">
+            <button class="btn btn-pay" (click)="payFood()">Pagar</button>
+        </div>
+    </div>
 </div>

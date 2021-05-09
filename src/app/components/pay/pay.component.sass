@@ -6,21 +6,107 @@ p
     margin: 1rem 0
     padding: 0
     color: styles.$oscuroClaro
+    font-size: 1.8rem
 
 span
     font-weight: bold
 
-.container-principal p
-    font-size: 18px
-
 /*Clases*/
-.container-principal
-    background-color: styles.$background
-    padding: .5rem 0
-
 .container
     background-color: white
     width: 80%
     margin: 0 auto
-    border-radius: .5rem
+    border-radius: 1rem
+    padding: .5rem
+    margin-top: 1rem
     margin-bottom: 1rem
+.center
+    text-align: center
+.cart
+    margin-top: 1rem
+.cart__card
+    margin: 1rem
+    display: grid
+    grid-template-columns: 75% 25%
+    column-gap: .5rem
+.contenido h2 span
+    font-weight: normal
+    font-size: 2rem
+
+/*Para la barra superior*/
+.title
+    display: flex
+    justify-content: space-between
+    margin: 0 2rem
+
+/*Para el lado izquierdo*/
+.border
+    border: .2rem styles.$opciones2Oscuro solid
+    padding: 1rem
+    border-radius: 1rem
+.grid
+    display: grid
+    grid-template-columns: 75% 25%
+.contenido
+    margin: 0 2rem 0 1rem
+.contenido p
+    text-align: justify
+.contenido h2
+    text-align: center
+img
+    max-width: 100%
+    border-radius: 1rem
+.contenido__imagen
+    cursor: pointer
+    opacity: .75
+    transition: all .25s ease-out
+
+    &:hover
+        transform: scale(1.1)
+        opacity: 1
+
+/*Para el lado derecho*/
+.right
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: center
+    align-content: center
+.btn
+    cursor: pointer
+    padding: 0 1.5rem
+    font-size: 2.4rem
+    border-radius: 1rem
+    transition: all .25s ease-out
+.btn-reduce
+    border: .4rem #f5c6cb solid 
+    background-color: styles.$opciones2
+
+    &:hover
+        background-color: #f8d7da
+.btn-increment
+    border: .4rem #c3e6cb solid 
+    background-color: styles.$opciones2
+
+    &:hover
+        background-color: #d4edda
+.label-quantity
+    border-radius: 1rem
+    padding: .5rem 2rem
+    font-weight: bold
+
+/*Accion de pagar*/
+.pay
+    margin: 1rem 0
+.btn-pay
+    border: .4rem styles.$opciones2Oscuro solid 
+    background-color: styles.$opciones2
+
+    &:hover
+        border: .4rem styles.$opcionesOscuro solid 
+        background-color: styles.$opciones
+
+/*Responsive design*/
+@media (min-width:  768px)
+    .right
+        flex-direction: row

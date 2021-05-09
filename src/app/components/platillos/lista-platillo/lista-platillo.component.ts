@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetalleOrden } from '@app/shared/interfaces/detalleorden.interface';
 import { Platillo } from '@app/shared/interfaces/platillo.interface';
+import { CarritoService } from '@app/shared/service/carrito.service';
 import { PlatillosService } from '@app/shared/service/platillos.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -26,7 +27,8 @@ export class ListaPlatilloComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private platillosServ: PlatillosService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private carritoServ: CarritoService
   ) {
     this.route.url.subscribe(() => {
       this.page = 1;
@@ -45,7 +47,7 @@ export class ListaPlatilloComponent implements OnInit {
       const detail = new DetalleOrden();
       detail.cantidad = this.cantidad[posicion];
       detail.platillo = platillo;
-      this.platillosServ.addCart(detail);
+      this.carritoServ.addCart(detail);
 
       this.toast.success(`Agrego ${this.cantidad[posicion]} ordenes a su carrito`, 'Orden actualizada');
       this.cantidad[posicion] = 0;
