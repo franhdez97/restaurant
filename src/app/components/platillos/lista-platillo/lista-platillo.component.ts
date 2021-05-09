@@ -14,7 +14,11 @@ import { ToastrService } from 'ngx-toastr';
 export class ListaPlatilloComponent implements OnInit {
   public opcion = '';
   public platillos = this.platillosServ.listaPlatillos$;
+
+  // para las cantidades
   public cantidad: Array<number> = [];
+  // Para los filtros de busqueda
+  public filtro = '';
 
   // Para la paginacion
   page = 1;
@@ -48,6 +52,14 @@ export class ListaPlatilloComponent implements OnInit {
     }
     else if (this.cantidad[posicion] <= 0) {
       this.toast.error('Intente con un numero mayor a 0', 'Numero invalido');
+    }
+  }
+
+  public filtrarLista(event: any): void {
+    const palabra = event.target.value;
+
+    if (palabra !== '') {
+      // this.platillosServ.searchFoodAPI(palabra);
     }
   }
 

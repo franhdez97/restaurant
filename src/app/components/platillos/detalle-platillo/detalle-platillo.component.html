@@ -7,15 +7,24 @@
         </div>
 
         <div class="descripcion">
-            <p class="center">
-                <span>Usamos los mejores ingredientes</span>
-            </p>
-            <p class="justificar">{{detail.descripcion}}</p>
+            <div class="descripcion__comida">
+                <p class="center">
+                    <span>Usamos los mejores ingredientes</span>
+                </p>
+                <p class="justificar">
+                    {{detail.ingredientes}}
+                    <br>
+                    ({{detail.descripcion}})
+                </p>
+            </div>
+            <div class="descripcion__boton">
+                <button class="btn" (click)="regresar()">Regresar</button>
+            </div>
         </div>
 
         <div class="divisor"></div>
 
-        <p class="center mayusculas" *ngIf="moreImages | async">Más imagenes</p>
+        <p class="center mayusculas">Más imagenes</p>
         <!-- <p class="center mayusculas error" *ngIf="moreImages | async">No hay más imagenes disponibles</p> -->
 
         <div class="grid-images">

@@ -7,7 +7,9 @@
             <div class="preview">
                 <div class="preview__description">
                     <h2>{{platillo.nombre}}</h2>
-                    <p>{{platillo.descripcion}} </p>
+                    <p class="preview__description__more">
+                        {{platillo.ingredientes}} <span>(Obtén mas información haciendo clic en la imagen)</span>
+                    </p>
                 </div>
 
                 <a [routerLink]="['/food-details',platillo.id]" [title]="platillo.nombre">
@@ -33,24 +35,29 @@
     <!-- Sidebar | right -->
     <div class="sidebar-right">
         <div class="sidebar-border">
-            <div class="sidebar-left-container">
-                <p class="sidebar-left-container__titulo">
+            <!-- Busqueda e intruccciones -->
+            <div class="sidebar-right-container">
+                <div class="sidebar-right-container__busqueda">
+                    <label class="label-search" for="input-search">¿{{opcion | titlecase}} en específico?</label>
+                    <input class="input-search" id="input-search" type="text" [(ngModel)]="filtro" placeholder="Busque aquí..." (keyup.enter)="filtrarLista($event)">
+                </div>
+
+                <div class="divisor"></div>
+
+                <p class="sidebar-right-container__titulo">
                     ¿Como ordenar?
                 </p>
     
                 <ul class="list">
                     <li>Selecciona la cantidad de platillos que deseas</li>
-                    <li>Ha clic en el icono de agregar</li>
+                    <li>Haz clic en el icono de agregar</li>
                 </ul>
                 <p>Y listo, muy simple ¿verdad?</p>
     
                 <div class="divisor"></div>
     
                 <div>
-                    <!-- <p class="center">
-                        Selecciona el platillo de tu preferencia y dejame contarte un poco sobre el
-                    </p> -->
-                    <div class="sidebar-left-container__descripcion">
+                    <div class="sidebar-right-container__descripcion">
                         <p>Puedes ver tu carrito actual en la opción <span>Pagar</span></p>
                     </div>
                 </div>

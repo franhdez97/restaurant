@@ -4,6 +4,7 @@ import { MoreImages } from '@app/shared/interfaces/images.interface';
 import { Platillo } from '@app/shared/interfaces/platillo.interface';
 import { PlatillosService } from '@app/shared/service/platillos.service';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detalle-platillo',
@@ -14,11 +15,19 @@ export class DetallePlatilloComponent implements OnInit {
   public platillo: Observable<Platillo[]> = this.platillosServ.detallePlatillo$;
   public moreImages: Observable<MoreImages[]> = this.platillosServ.moreImages$;
 
-  constructor(private route: ActivatedRoute, private platillosServ: PlatillosService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private platillosServ: PlatillosService,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.platillosServ.getDetailAPI(this.route.snapshot.params?.id);
-    this.platillosServ.getMoreImages(this.route.snapshot.params?.id);
+    this.platillosServ.getMoreImagesAPI(this.route.snapshot.params?.id);
+  }
+
+  public regresar(): void {
+    this.location.back();
   }
 
 }

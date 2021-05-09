@@ -9,13 +9,16 @@
 %center
     text-align: center
 
-/*Etiquetas*/
+/*Descripcion*/
 .preview__description h2
     @extend %center
     text-transform: uppercase
-.preview__description p
+.preview__description__more
     text-align: justify
     font-size: 1.2em
+.preview__description__more span
+    font-weight: bold
+    font-size: 1rem
 
 .container
     display: grid
@@ -33,24 +36,37 @@
 .sidebar-right
     margin-top: 1rem
     margin-right: 0
-
-.sidebar-left-container
-    display: flex
-    flex-direction: column
-    background-color: white
-    @extend %radius
-    padding: 0 1rem
 .sidebar-border
     @extend %radius
     border: 2px styles.$opciones solid
     height: 100%
     padding: .5rem .5rem 0 .5rem
-.sidebar-left-container__titulo
+.sidebar-right-container
+    display: flex
+    flex-direction: column
+    background-color: white
+    @extend %radius
+    padding: 0 1rem
+.sidebar-right-container__busqueda
+    display: grid
+    grid-template-columns: 100%
+    margin-bottom: .5rem
+
+.input-search
+    border-radius: .4rem
+    border: 2px styles.$opciones2Oscuro solid
+    padding: .25rem
+    font-size: 16px
+    text-align: center
+.label-search
+    margin: .25rem 0 .5rem 0
+
+.sidebar-right-container__titulo
     text-transform: uppercase
     font-weight: bold
-.sidebar-left-container__descripcion
+.sidebar-right-container__descripcion
     @extend %center
-.sidebar-left-container__descripcion span
+.sidebar-right-container__descripcion span
     text-transform: uppercase
     font-weight: bold
 
@@ -117,7 +133,7 @@ li
     .container
         grid-template-columns: 75% 25%
         margin: .5rem 1rem
-    .sidebar-left-container
+    .sidebar-right-container
         height: 100%
         justify-content: center
     .sidebar-right

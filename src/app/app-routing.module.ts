@@ -12,7 +12,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'list/:category',
+    path: 'menu/:category',
     component: ListaPlatilloComponent
   },
   {
@@ -20,13 +20,11 @@ const routes: Routes = [
     component: DetallePlatilloComponent
   },
   {
-    path: 'pay',
+    path: 'pagar',
     component: PayComponent
   },
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

@@ -38,22 +38,28 @@ export class PlatillosService {
       map( (res: Platillo[]) => this.listaPlatillosSubject.next(res) )
     ).subscribe();
   }
-  // Para el home
+  // Para el home (Obtiene 6 platillos al azar)
   public getHomeAPI(): void {
     this.http.get<Platillo[]>(`${URL}/getHome.php`).pipe(
       map( (res: Platillo[]) => this.listaHomeSubject.next(res) )
     ).subscribe();
   }
-  // Para el detalle
+  // Para el detalle (segun el platillo)
   public getDetailAPI(id: number): void {
     this.http.get<Platillo[]>(`${URL}/getDetail.php?id=${id}`).pipe(
       map( (res: Platillo[]) => this.detallePlatilloSubject.next(res) )
     ).subscribe();
   }
-  // Para mas imagenes
-  public getMoreImages(id: number): void {
+  // Para mas imagenes (Obtiene todas las imagenes de una comida)
+  public getMoreImagesAPI(id: number): void {
     this.http.get<MoreImages[]>(`${URL}/getImages.php?id=${id}`).pipe(
       map( (res: MoreImages[]) => this.imagesSubject.next(res) )
+    ).subscribe();
+  }
+  // Para obtener un listado filtrado de la comida
+  public searchFoodAPI(filter: string): void {
+    this.http.get<Platillo[]>(`${URL}/searchFood.php?query=${filter}`).pipe(
+      map( (res: Platillo[]) => this.listaPlatillosSubject.next(res) )
     ).subscribe();
   }
 

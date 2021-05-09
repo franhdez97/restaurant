@@ -3,5 +3,6 @@ export class Platillo {
     precio: number = 0;
     imagen: string = '';
     descripcion: string = '';
+    ingredientes: string = '';
     id?: number;
 }
