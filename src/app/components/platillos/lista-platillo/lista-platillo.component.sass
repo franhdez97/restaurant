@@ -1,7 +1,7 @@
 @use '../../../../styles'
 
 %resolucion
-    width: 100%
+    max-width: 100%
 %transicion
     transition: all 0.25s ease-in-out
 %radius
@@ -15,6 +15,7 @@
     text-transform: uppercase
 .preview__description p
     text-align: justify
+    font-size: 1.2em
 
 .container
     display: grid
@@ -72,23 +73,22 @@ li
 .preview__description
     display: flex
     flex-direction: column
-    margin: 0 1rem
+    margin: 0 2rem
 .preview__image
-    width: 100%
+    @extend %resolucion
     border-radius: .5rem
     cursor: pointer
     @extend %transicion
     display: block
     margin: auto
     
+    opacity: .8
     &:hover
         transform: scale(1.1)
+        opacity: 1
 
 /*Extras*/
-.divisor
-    background-color: styles.$footerClaro
-    margin: 1rem 2rem
-    padding: .1rem  0
+
 .center
     @extend %center
 .no-data

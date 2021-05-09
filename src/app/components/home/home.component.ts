@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Solicitud de API REST
-    this.platillosServ.getFoodHome();
+    this.platillosServ.getHomeAPI();
   }
 
 }

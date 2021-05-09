@@ -10,7 +10,7 @@
                     <p>{{platillo.descripcion}} </p>
                 </div>
 
-                <a href="food-details/{{platillo.id}}" target="_blank" [title]="platillo.nombre">
+                <a [routerLink]="['/food-details',platillo.id]" [title]="platillo.nombre">
                     <img class="preview__image" [src]="platillo.imagen" [alt]="platillo.nombre">
                 </a>
             </div>

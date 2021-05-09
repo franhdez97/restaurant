@@ -1,8 +1,27 @@
 <div class="container">
-    <h1>Lorem, ipsum.</h1>
+    <div *ngFor="let detail of platillo | async">
+        <div class="card-image" style="background: url({{detail.imagen}}) center center;">
+            <div class="texto-opaco">
+                <h1 class="mayusculas">{{detail.nombre}}</h1>
+            </div>
+        </div>
 
-    <div class="card-image"></div>
-    <div class="grid-images">
+        <div class="descripcion">
+            <p class="center">
+                <span>Usamos los mejores ingredientes</span>
+            </p>
+            <p class="justificar">{{detail.descripcion}}</p>
+        </div>
 
+        <div class="divisor"></div>
+
+        <p class="center mayusculas" *ngIf="moreImages | async">Más imagenes</p>
+        <!-- <p class="center mayusculas error" *ngIf="moreImages | async">No hay más imagenes disponibles</p> -->
+
+        <div class="grid-images">
+            <div class="grid-images__container" *ngFor="let img of moreImages | async; let i = index">
+                <img [src]="img.ruta" alt="Imagen {{i}}">
+            </div>
+        </div>
     </div>
 </div>
