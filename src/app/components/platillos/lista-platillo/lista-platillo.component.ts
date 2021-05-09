@@ -58,9 +58,7 @@ export class ListaPlatilloComponent implements OnInit {
   public filtrarLista(event: any): void {
     const palabra = event.target.value;
 
-    if (palabra !== '') {
-      // this.platillosServ.searchFoodAPI(palabra);
-    }
+    palabra !== '' ? this.platillosServ.searchFoodAPI(palabra) : this.platillosServ.getAllAPI(this.opcion);
   }
 
 }
