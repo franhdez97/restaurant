@@ -11,7 +11,7 @@ import { ItemPlatilloComponent } from './components/platillos/item-platillo/item
 import { HomeComponent } from './components/home/home.component';
 import { PayComponent } from './components/pay/pay.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Alertas
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { FormsModule } from '@angular/forms';
 
+// Para el spinner
+import { SpinnerModule } from './shared/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +41,12 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    SpinnerModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
